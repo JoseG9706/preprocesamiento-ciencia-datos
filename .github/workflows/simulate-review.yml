@@ -1,0 +1,20 @@
+name: Simular revisión de PR
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  simulate-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dejar comentario en PR
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: "✅ Revisión simulada completa. ¡Listo para merge!"
+            })
