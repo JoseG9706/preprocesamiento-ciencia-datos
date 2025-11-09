@@ -89,6 +89,14 @@ Para la creación del workflow se realizaron las siguientes acciones:
 <img width="975" height="497" alt="8" src="https://github.com/user-attachments/assets/19fd691d-41ce-4007-b282-8c98b663c184" />
 
 
+**Bibliografía**
+
+ATLASSIAN. (s.f.). Obtenido de https://www.atlassian.com/es/git/glossary#commands
+
+GitHub. (s.f.). Documentación de GitHub. Obtenido de https://docs.github.com/es/actions/get-started/understand-github-actions#overview
+
+
+
 
 **Link Repositorio:**
 
