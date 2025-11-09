@@ -1,21 +1,30 @@
 name: Simulate Review
+
 on:
   pull_request:
     types: [opened, synchronize]
+
+permissions:
+  issues: write
+  pull-requests: write
+
 jobs:
   review:
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
-      pull-requests: write
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/github-script@v6
+      # Clonar el repositorio
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Comentar automáticamente en el PR
+      - name: Comment on Pull Request
+        uses: actions/github-script@v6
         with:
           script: |
-            github.issues.createComment({
-              issue_number: 1,
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: "✅ Revisión simulada completa. ¡Listo para merge!"
-            })
+            });
+
